@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <meta charset= "UTF-8"/>
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0"/>
+        <meta name="description" content="Main Page for Best Community Service. The site allows individuals to book halls for social events, volunteer and organize events. As well as allows 
+                                          users to rent equipment from the organization. The site also allows employees to view their own information, track their wages and provide payment to other workers"/>
+        <meta name="author" content="Aditya Samant, Benjamin Powell, Daniel Perez, Sullivan Wenger, Timothy Dirusso & Yuchong Li"/>
+        <meta http-equiv="X-UA-Compatible" content="ie-edge"/> <!--Just in case you are using an old IE browser, don't know why-->
+        <title>Best Community Service Main Page</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <!--Header-->
+        <div class="header">
+            <h1>Welcome to Best Community Service! </h1>
+        </div>
+        
+         <!-- Navigation Bar; hrefs are placeholders do them how you will -->
+        <nav class="nav-bar">
+          <a button="#home">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#volunteer">Volunteer</a>
+          <a href="#reserve">Reserve a Room</a>
+          <a href="#rent">Equipment Rental</a>
+          <a href="#oldAge">Old Age Care</a>
+          <a href="#donate">Donate</a>
+          <a id="loginRef"  class="login">Login</a>
+          <a href="#register" class="right">Register</a>
+        </nav> 
+        
+                
+        <!--Modal: A pop up used for login formalities-->
+        <div id="ModalView" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn">&times;</span>  <!--&times; is the x symbol-->
+                    <h2>Login</h2>
+                </div>
+                <div class="modal-body">
+                    <div id=class="form">
+                        <form class="login-form">
+                            <Label for="uname"><b>Username: </b></Label>
+                            <input type="text" placeholder="username" name="uname" required/>
+                            <br/>
+                            <br/>
+                            <Label for="pwd"><b>Password: </b></Label>
+                            <input type="text" placeholder="password" name="pwd" required/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                      </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type ="submit" class="loginBtn">Login</button>
+                </div>
+            </div>
+        </div>
+        
+        <!--Rest of Main Page-->
+        <div class="row">
+            <div class="side">...</div>
+            <div class="main">...</div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Rockwell, Times, Georgia, "Palatino Linotype", "Book Antiqua", Palatino, serif; /*Holds up to 7; go to w3schools css web safe fonts and pick whatever you want*/
+    font-size:17px;
+    margin: 0;
+}
+/*Style header*/
+.header{
+    padding: 80px;
+    text-align:center;
+    color:white;
+    background: aqua;
+}
+
+.header h1{
+    font-size: 50px;   
+}
+.nav-bar{
+    overflow: hidden;
+    background-color:black; /*I like it but change it if you want*/
+}
+
+.nav-bar a{
+    float: left;
+    display: block;
+    color: whitesmoke;
+    text-align: center;
+    padding:14px 20px;
+    text-decoration: none;
+}
+/*Login and register option to the right size of nav bar*/
+.nav-bar a.right{
+    float:right;
+}
+    
+.nav-bar a.login{
+    float:right;
+}
+   
+.nav-bar a:hover{
+    background-color: yellow;
+    color: black;
+}
+/*Overall pop-up for login*/
+.modal{
+    display:none; /*Hides modal when the page loads, move to block to display*/
+    position: fixed;
+    z-index: 1; /*order of elements, higher it is the more to the front*/
+    left: 0;
+    top: 0;
+    height:100%;
+    width: 100%;
+    overflow: auto; /*Enable scrolling*/
+    background-color: rgba(0,0,0,0.5); /*Darkens background but maintains opacity*/
+    padding-top: 60px;
+    
+}
+.modal-content{
+    background-color:skyblue;
+    margin: 5% auto 15% auto;; /*% of how top down you want the modal to be*/
+    padding: 100px; /*Seriously just guessing and checking*/
+    width:50%;
+    border: 1px solid #888;
+}
+
+.closeBtn{
+    position:absolute;
+    right:400px;
+    top: 140px;
+    color:aliceblue;
+    font-size: 30px;
+    font-weight:bold;
+}
+
+.closeBtn:hover, .closeBtn:focus{
+    color:navy;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-header{
+    background-color:skyblue;
+    
+}
+.modal-header h2{
+    position:absolute;
+    top: 150px;
+    left: 700px;
+    font-size: 30px;
+    color:aliceblue;
+}
+
+.modal-body{
+    background-color: white;
+    width:100%;
+    
+}
+
+.modal-footer{
+    background-color: skyblue;
+}
+
+.loginBtn{
+    padding: 1em 2em;
+    background:black;
+    color: aliceblue;
+}
