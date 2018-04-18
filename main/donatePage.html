@@ -101,8 +101,7 @@
 						margin: 0 0 30px 30px;
 						padding: 30px;">
 				
-				<form class="donateForm" style="padding-left:1em;"> 
-				
+				<form id="donateForm" class="donateForm" style="padding-left:1em;"> 
 					<h1>Thanks for Your Support!</h1>
 				
 					<p style="margin-bottom:50px;">
@@ -111,23 +110,24 @@
 				
 					<h3>Select an Amount</h3>
 				
-					<button type="button" class="donate" onclick="donate(1)">$1</button>
-					<button type="button" class="donate" onclick="donate(5)">$5</button>
-					<button type="button" class="donate" onclick="donate(10)">$10</button>
-					<button type="button" class="donate" onclick="donate(25)">$25</button>
-					<button type="button" class="donate" onclick="donate(50)">$50</button>
-					<button type="button" class="donate" onclick="customDonate()">Custom</button>
+					<button type="button" class="donate" value="1" onclick="donate(0)">$1</button>
+					<button type="button" class="donate" value="5" onclick="donate(1)">$5</button>
+					<button type="button" class="donate" value="10" onclick="donate(2)">$10</button>
+					<button type="button" class="donate" value="25" onclick="donate(3)">$25</button>
+					<button type="button" class="donate" value="50" onclick="donate(4)">$50</button>
+					<button type="button" class="donate" value="custom" onclick="donate(5)">Custom</button>
+					<input type="text" name="custom" placeholder="Enter Amount" style="margin-right: 25px; height:25px; width:100px; visibility: hidden" oninput="setCustomAmount()"></br>
 					
 					<hr style="margin-top: 25px; margin-right: 1em; background-color:#000000; border-color:#000000; color:#000000; border: 2px solid #000000;">
 					
 					<h3>Your Details</h3>
 					
 					<div style="text-align: center; display:inline-block">
-						<input type="text" name="firstname" placeholder="First Name" style="margin-right: 25px; height:25px; width:200px;">
-						<input type="text" name="lastname" placeholder="Last Name" style="margin-right: 25px; height:25px; width:200px;">
-						<input type="text" name="email" placeholder="Email" style="margin-right: 25px; height:25px; width:200px;"></br>
+						<input type="text" name="firstname" placeholder="First Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateFName()">
+						<input type="text" name="lastname" placeholder="Last Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateLName()">
+						<input type="text" name="email" placeholder="Email" oninput="validateEmail()" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></br>
 						
-						<button class="donate" onclick="donateSubmit()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Donate</button>
+						<button type="button" class="donate" onclick="donateSubmit()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Donate</button>
 					</div>
 					
 				</form>
@@ -137,8 +137,11 @@
 						height:50px;
 						background-color:#6495ED;
 						font-size: 16px;
+						border: 2px solid black;
+						box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 						display: inline-block;
-						padding: 5px 30px
+						padding: 5px 30px;
+						margin-bottom: 5px;
 					}
 				</style>
 				
@@ -160,7 +163,7 @@
 				
 				<p>Do I get a receipt after I submit my donation?</p>
 				
-				<button type="button" class="donate" onclick="customDonate()">Ask a Question</button>
+				<button type="button" class="donate" onclick="askQuestionPressed()">Ask a Question</button>
 				
 			</div>
 			
