@@ -9,10 +9,10 @@ body{
 }
 /*Style header*/
 .header{
-    padding: 80px;
+    padding: 10px;
     text-align:center;
     color:white;
-    background: aqua;
+    background: #2f2bff;
 }
 
 .header h1{
@@ -140,7 +140,7 @@ body{
     padding: 10px;
     text-align: center;
     width:100%;
-    background:aqua;
+    background: #2f2bff;
     color:white;
 }
 

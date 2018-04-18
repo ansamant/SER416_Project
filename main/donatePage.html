@@ -5,8 +5,7 @@
         <meta charset= "UTF-8"/>
         <meta name="viewport" content="width=device-width,
         initial-scale=1.0"/>
-        <meta name="description" content="Main Page for Best Community Service. The site allows individuals to book halls for social events, volunteer and organize events. As well as allows 
-                                          users to rent equipment from the organization. The site also allows employees to view their own information, track their wages and provide payment to other workers"/>
+        <meta name="description" content="Donate Page"/>
         <meta name="author" content="Aditya Samant, Benjamin Powell, Daniel Perez, Sullivan Wenger, Timothy Dirusso & Yuchong Li"/>
         <meta http-equiv="X-UA-Compatible" content="ie-edge"/> <!--Just in case you are using an old IE browser, don't know why-->
         <title>Best Community Service Main Page</title>
@@ -57,7 +56,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type ="submit" class="loginBtn">Login</button>
-                    <button type = "submit" class="loginBtn">Forgot Password?</button>
                 </div>
             </div>
         </div>
@@ -93,33 +91,83 @@
         </div>
         
         <!--Rest of Main Page-->
-        <div class="row">
-            <div class="side">
-                <h2><i>"When One Neighbor Helps Another,We Strengthen Our Communities"</i></h2>
-                <p><i>-Jennifer Pahlka</i></p>
-                
-            </div>
-            <div class="main">
-                <img class="Slideshow" src="../images/volunteer1.jpg">
-                <img class="Slideshow" src="../images/volunteer2.jpg">
-                <img class="Slideshow" src="../images/volunteer3.jpg">
-                <img class="Slideshow" src="../images/wedding1.jpg">
-                <img class="Slideshow" src="../images/wedding2.jpg">
-                <img class="Slideshow" src="../images/wedding3.jpg">
-                <img class="Slideshow" src="../images/wedding4.jpg">
-                <h2>Why A Best Community Wedding was the Best for Me</h2>
-                <h3>Learn what recently married Jane Parker has to say about the Best Community experience</h3>
-                <h4><i>-Jane Parker, 04/25/2018</i></h4>
-                <p style="padding-left:5em">
-                    Call me Ishmael. Some years ago - never mind how long precisely - having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation. Whenever I find myself growing grim about the mouth; whenever it is a damp, drizzly November in my soul; whenever I find myself involuntarily pausing before coffin warehouses, and bringing up the rear of every funeral I meet; and especially whenever my hypos get such an upper hand of me, that it requires a strong moral principle to prevent me from deliberately stepping into the street, and methodically..
-                </p>
-            </div>
-            <div class="footer">
-               <center><p1>Best Community Inc. is a registered 501(c)3 nonprofit organization.</p1><p1><ul>All donations are tax deductible in full or in part.</ul></p1>
-                <p2 class="scrollOn"><u>Security</u> &nbsp; <u>Privacy Policy</u> &nbsp; <u>Terms of Use</u></p2><br/>
-                   <p3>&copy; Best Comunity Inc. All rights reserved</p3> </center>
-            </div>
+        <div class="row" style="display:flex; padding: 50px 50px;">
+			
+			<div class="left" 
+				style=	"border: 3px solid black;
+						flex-grow: 0;
+						flex-shrink: 0;
+						flex-basis: 55%;
+						margin: 0 0 30px 30px;
+						padding: 30px;">
+				
+				<form id="donateForm" class="donateForm" style="padding-left:1em;"> 
+					<h1>Thanks for Your Support!</h1>
+				
+					<p style="margin-bottom:50px;">
+						100% of your donation will go toward ensuring we provide the best community service for our community.  Working together, we can help make the world a better place.  We thank you for your ongoing support and consideration.
+					</p>
+				
+					<h3>Select an Amount</h3>
+				
+					<button type="button" class="donate" value="1" onclick="donate(0)">$1</button>
+					<button type="button" class="donate" value="5" onclick="donate(1)">$5</button>
+					<button type="button" class="donate" value="10" onclick="donate(2)">$10</button>
+					<button type="button" class="donate" value="25" onclick="donate(3)">$25</button>
+					<button type="button" class="donate" value="50" onclick="donate(4)">$50</button>
+					<button type="button" class="donate" value="custom" onclick="donate(5)">Custom</button>
+					<input type="text" name="custom" placeholder="Enter Amount" style="margin-right: 25px; height:25px; width:100px; visibility: hidden" oninput="setCustomAmount()"></br>
+					
+					<hr style="margin-top: 25px; margin-right: 1em; background-color:#000000; border-color:#000000; color:#000000; border: 2px solid #000000;">
+					
+					<h3>Your Details</h3>
+					
+					<div style="text-align: center; display:inline-block">
+						<input type="text" name="firstname" placeholder="First Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateFName()">
+						<input type="text" name="lastname" placeholder="Last Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateLName()">
+						<input type="text" name="email" placeholder="Email" oninput="validateEmail()" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></br>
+						
+						<button type="button" class="donate" onclick="donateSubmit()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Donate</button>
+					</div>
+					
+				</form>
+				
+				<style>
+					.donate{
+						height:50px;
+						background-color:#6495ED;
+						font-size: 16px;
+						border: 2px solid black;
+						box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+						display: inline-block;
+						padding: 5px 30px;
+						margin-bottom: 5px;
+					}
+				</style>
+				
+			</div>
+			
+			<div class="right" 
+				style=	"border: 3px solid black;
+						flex-grow: 0;
+						flex-shrink: 0;
+						flex-basis: 30%;
+						margin: 0 0 30px 30px;
+						padding: 30px;">
+				
+				<h3>Questions?</h3>
+				
+				<p>Is my donation safe and secure?</p>
+				
+				<p>Is my donation tax-deductible?</p>
+				
+				<p>Do I get a receipt after I submit my donation?</p>
+				
+				<button type="button" class="donate" onclick="askQuestionPressed()">Ask a Question</button>
+				
+			</div>
+			
         </div>
-        <script src="main.js"></script>
+        <script src="donate.js"></script>
     </body>
 </html>
