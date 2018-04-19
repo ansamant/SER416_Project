@@ -192,6 +192,9 @@ function askQuestionPressed(){
 		email.pattern = "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
 		x.appendChild(email);
 		
+		var br1 = document.createElement("br");
+		x.appendChild(br1);
+		
 		var quest = document.createElement("textarea");
 		quest.placeholder = "Question";
 		quest.id= "questField";
@@ -200,6 +203,9 @@ function askQuestionPressed(){
 		quest.style.width = "250px";
 		quest.style.border = "1px solid gray";
 		x.appendChild(quest);
+		
+		var br2 = document.createElement("br");
+		x.appendChild(br2);
 		
 		var button = document.createElement("button");
 		button.innerHTML = "Submit Question"
