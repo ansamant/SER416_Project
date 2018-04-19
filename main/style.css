@@ -45,7 +45,7 @@ body{
     color: black;
 }
 /*Overall pop-up for login*/
-.modal{
+.myModal{
     display:none; /*Hides modal when the page loads, move to block to display*/
     position: fixed;
     z-index: 1; /*order of elements, higher it is the more to the front*/
@@ -58,7 +58,7 @@ body{
     padding-top: 60px;
     
 }
-.modal-content{
+.myModalContent{
     background-color:skyblue;
     margin: 5% auto 15% auto;; /*% of how top down you want the modal to be*/
     padding: 100px; /*Seriously just guessing and checking*/
@@ -80,11 +80,11 @@ body{
     text-decoration: none;
     cursor: pointer;
 }
-.modal-header{
+.myModalHeader{
     background-color:skyblue;
     
 }
-.modal-header h2{
+.myModalHeader h2{
     position:absolute;
     top: 150px;
     left: 700px;
@@ -92,13 +92,13 @@ body{
     color:aliceblue;
 }
 
-.modal-body{
+.myModalBody{
     background-color: white;
     width:100%;
     
 }
 
-.modal-footer{
+.myModalFooter{
     background-color: skyblue;
 }
 
