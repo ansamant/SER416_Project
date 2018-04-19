@@ -1,0 +1,297 @@
+    <!DOCTYPE HTML>
+
+    <html lang="en">
+        <head>
+            <meta charset= "UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta name="description" content="Donate Page"/>
+            <meta name="author" content="Aditya Samant, Benjamin Powell, Daniel Perez, Sullivan Wenger, Timothy Dirusso & Yuchong Li"/>
+            <meta http-equiv="X-UA-Compatible" content="ie-edge"/> <!--Just in case you are using an old IE browser, don't know why-->
+            <title>Best Community Service Main Page</title>
+            <link rel="stylesheet" href="style.css"/>
+            <script src="volunteer.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+
+
+
+            <style>
+                * {
+                    box-sizing: border-box;
+                }
+
+                .columns {
+                    float: left;
+                    width: 33.3%;
+                    padding: 8px;
+                }
+
+                .event {
+                    list-style-type: none;
+                    border: 1px solid #eee;
+                    margin: 0;
+                    padding: 0;
+                    -webkit-transition: 0.3s;
+                    transition: 0.3s;
+                }
+
+                .event:hover {
+                    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+                }
+
+                .event .header {
+                    background-color: #111;
+                    color: white;
+                    font-size: 25px;
+                }
+
+                .event li {
+                    border-bottom: 1px solid #eee;
+                    padding: 20px;
+                    text-align: center;
+                }
+
+                .event .grey {
+                    background-color: #eee;
+                    font-size: 20px;
+                }
+
+                .button {
+                    background-color: #2f2bff;
+                    border: none;
+                    color: white;
+                    padding: 10px 25px;
+                    text-align: center;
+                    text-decoration: none;
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+                .myModal {
+                    display: none; /* Hidden by default */
+                    position: fixed; /* Stay in place */
+                    z-index: 1; /* Sit on top */
+                    padding-top: 100px; /* Location of the box */
+                    left: 0;
+                    top: 0;
+                    width: 100%; /* Full width */
+                    height: 100%; /* Full height */
+                    overflow: auto; /* Enable scroll if needed */
+                    background-color: rgb(0,0,0); /* Fallback color */
+                    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                }
+
+                /* Modal Content */
+                .myModalContent {
+                    position: relative;
+                    background-color: #fefefe;
+                    margin: auto;
+                    padding: 0;
+                    border: 1px solid #888;
+                    width: 80%;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+                    -webkit-animation-name: animatetop;
+                    -webkit-animation-duration: 0.4s;
+                    animation-name: animatetop;
+                    animation-duration: 0.4s
+                }
+
+                /* Add Animation */
+                @-webkit-keyframes animatetop {
+                    from {top:-300px; opacity:0}
+                    to {top:0; opacity:1}
+                }
+
+                @keyframes animatetop {
+                    from {top:-300px; opacity:0}
+                    to {top:0; opacity:1}
+                }
+
+                /* The Close Button */
+                .myClose {
+                    color: black;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+
+                .myClose:hover,
+                .myClose:focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
+                .myModalHeader {
+                    padding: 2px 16px;
+                    background-color: #2f2bff;
+                    color: white;
+                }
+
+                .myModalBody {padding: 2px 16px;}
+
+                .myModalFooter {
+                    padding: 2px 16px;
+                    background-color: #2f2bff;
+                    color: white;
+                }
+            </style>
+        </head>
+
+        <body>
+
+            <div class="header">
+                <h1>Welcome to Best Community Service! </h1>
+            </div>
+
+            <nav class="nav-bar">
+                <a href="mainPage.html">Home</a>
+                <a href="#about">About Us</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="#reserve">Reserve a Room</a>
+                <a href="#rent">Equipment Rental</a>
+                <a href="#oldAge">Old Age Care</a>
+                <a href="donatePage.html">Donate</a>
+                <a id="loginRef"  class="login">Login</a>
+                <a id="registerRef" class="right">Register</a>
+            </nav>
+
+            <div id="ModalView" class="myModal">
+                <div class="myModalContent">
+                    <div class="myModalHeader">
+                        <span class="closeBtn">&times;</span>  <!--&times; is the x symbol-->
+                        <h2>Login</h2>
+                    </div>
+                    <div class="myModalBody">
+                        <div id=class="form">
+                            <form class="login-form">
+                                <Label><b>Username: </b></Label>
+                                <input type="text" placeholder="username" name="uname" required/>
+                                <br/><br/>
+                                <Label><b>Password: </b></Label>
+                                <input type="text" placeholder="password" name="pwd" required/>
+                                <br/><br><br/><br/>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="myModalFooter">
+                        <button type ="submit" class="loginBtn">Login</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="registerModal" class="myModal">
+                <div class="myModalContent">
+                    <div class="myModalHeader">
+                        <span class="closeBtn">&times;</span>  <!--&times; is the x symbol-->
+                        <h2>Register</h2>
+                    </div>
+                    <div class="myModalBody">
+                        <div class="form">
+                            <form class="register-form">
+                                <label><b>Username: </b></label>
+                                <input type="text" placeholder="username" name="uname" required/>
+                                <br/><br/>
+                                <label><b>Password: </b></label>
+                                <input type="text" placeholder="password" name="pwd" required/>
+                                <br/><br/><br/><br/>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="myModalFooter">
+                        <button type="submit" class="loginBtn">Register</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Volunteer Page Content -->
+            <div style="padding-left: 15%; padding-right: 15%;">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 style="text-align: center;"><br>Volunteer with The Best Community Service</h1>
+                        <p>
+                            People of all ages volunteer their time, talents, and resources
+                            to assist The Best Community Service's work. Our volunteers are critical partners in helping us
+                            fulfill our promise to America of "Doing the Most Good."
+                        </p>
+
+                        <p>To get involved, please contact your local Best Community Service to see what opportunities are available.</p>
+                        <br/>
+
+                        <h3 class="locations" style="text-align: center;">Find Opportunities Near You</h3>
+
+                        <div style="text-align: center; display: block;">
+                            <input type="text" placeholder="Zip or City, ST Search" id="location">
+                            <input onclick="searchLocation($('#location').val())" type="submit" value="Search">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="display: none; padding-left: 15%; padding-right: 15%;" id="opportunities">
+                <div id="loading" style="text-align: center">
+                    <img src="../images/loading.gif">
+                </div>
+                <br/><br/><br/>
+                <div id="results" style="display: none; text-align: center">
+                    <div id="resultsFor"> </div>
+                    <br/>
+                    <div id="selections" style="padding-bottom: 500px;">
+                        <div class="columns">
+                            <ul class="event">
+                                <li class="header" style="background-color:#2f2bff"> Feed My Starving Children </li>
+                                <li class="grey"> Community Service Volunteer </li>
+                                <li><i class="fa fa-phone"></i> (480) 626-1970 </li>
+                                <li><i class="fa fa-map-marker"></i> 1345 S Alma School Rd, Phoenix, Arizona </li>
+                                <li><i class="fa fa-link"></i> http://www.fmsc.org </li>
+                                <li class="grey"><a onclick="signUp('Feed My Starving Children');" class="button">Sign Up</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="columns">
+                            <ul class="event">
+                                <li class="header" style="background-color:#2f2bff">House of Refuge - East</li>
+                                <li class="grey">Community Service Volunteer</li>
+                                <li><i class="fa fa-phone"></i> (480) 988-9242 </li>
+                                <li><i class="fa fa-map-marker"></i> 6935 E Williams Field Rd, Tempe, Arizona </li>
+                                <li><i class="fa fa-link"></i> http://www.houseofrefuge.org </li>
+                                <li class="grey"><a onclick="signUp('House of Refuge - East');" class="button">Sign Up</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="columns">
+                            <ul class="event">
+                                <li class="header" style="background-color:#2f2bff">Child Crisis Arizona </li>
+                                <li class="grey">Community Service Volunteer</li>
+                                <li><i class="fa fa-phone"></i> (480) 834-9424 </li>
+                                <li><i class="fa fa-map-marker"></i> 817 N Country Club Dr, Mesa, Arizona </li>
+                                <li><i class="fa fa-link"></i> http://www.childcrisisaz.org </li>
+                                <li class="grey"><a onclick="signUp('Child Crisis Arizona');" class="button">Sign Up</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="myModal" class="myModal">
+                <div class="myModalContent">
+                    <div class="myModalHeader">
+                        <span class="myClose" onclick="$('#myModal').fadeOut(250);">&times;</span>
+                    </div>
+                    <div class="myModalBody" id="modalBody"> </div>
+                    <div class="myModalFooter"> </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+        </body>
+    </html>
+
+
+
+
