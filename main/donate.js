@@ -92,6 +92,17 @@ function validateEmail(){
 	}
 }
 
+function validateQuestionEmail(){
+	var textField = document.getElementById("questionEmail");
+	if (textField.validity.valid == false){
+		textField.style.border = "2px solid red"
+		return false;
+	}else{
+		textField.style.border = "2px solid green"
+		return true;
+	}
+}
+
 function validateLName(){
 	var lNameField = document.getElementsByName("lastname")[0];
 	if (!lNameField.value || lNameField.value.replace(/\s/g,"") == ""){
@@ -156,4 +167,54 @@ function donateSubmit(){
 		location.reload()
 	});
 	x.appendChild(button);
+}
+
+function askQuestionPressed(){
+	if (!document.getElementById("questionText")){
+	
+		var x = document.getElementsByClassName("rightDiv")[0];
+		var text = document.createElement("p");
+		text.id = "questionText"
+		text.innerHTML = "Thank you for your interest. Please enter your question below and we will get back to you as soon as possible."
+		x.appendChild(text);
+		
+		var email = document.createElement("input");
+		email.placeholder = "Email";
+		email.id= "questionEmail";
+		email.required = true;
+		email.addEventListener("input", function(){
+			validateQuestionEmail()
+		});
+		email.style.marginRight = "25px";
+		email.style.height = "25px";
+		email.style.width = "250px";
+		email.style.border = "1px solid gray";
+		email.pattern = "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$";
+		x.appendChild(email);
+		
+		var quest = document.createElement("textarea");
+		quest.placeholder = "Question";
+		quest.id= "questField";
+		quest.rows="5";
+		quest.style.marginRight = "25px";
+		quest.style.width = "250px";
+		quest.style.border = "1px solid gray";
+		x.appendChild(quest);
+		
+		var button = document.createElement("button");
+		button.innerHTML = "Submit Question"
+		button.className = "donate"
+		button.type = "button"
+		button.addEventListener ("click", function() {
+			if (quest.value.replace(/\s/g,"") == ""){
+				window.alert("If you have a question, please enter it into the text box labeled \"Question\".");
+				return;
+			}
+			
+			if (validateQuestionEmail()){
+				window.alert("Your question has been received.\n\nWe normally answer questions within 24 hours.");
+			}
+		});
+		x.appendChild(button);
+	}
 }
