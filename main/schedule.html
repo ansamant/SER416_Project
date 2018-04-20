@@ -5,11 +5,12 @@
         <meta charset= "UTF-8"/>
         <meta name="viewport" content="width=device-width,
         initial-scale=1.0"/>
-        <meta name="description" content="Donate Page"/>
+        <meta name="description" content="Schedule Page"/>
         <meta name="author" content="Aditya Samant, Benjamin Powell, Daniel Perez, Sullivan Wenger, Timothy Dirusso & Yuchong Li"/>
         <meta http-equiv="X-UA-Compatible" content="ie-edge"/> <!--Just in case you are using an old IE browser, don't know why-->
         <title>Best Community Service Main Page</title>
         <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="table.css"/>
     </head>
     <body>
         <!--Header-->
@@ -20,9 +21,11 @@
          <!-- Navigation Bar; hrefs are placeholders do them how you will -->
         <nav class="nav-bar">
           <a href="mainPage.html">Home</a>
-          <a href="#volunteer">Volunteer</a>
+          <a href="#about">About Us</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="#reserve">Reserve a Room</a>
           <a href="#rent">Equipment Rental</a>
-          <a href="#event">Schedule an Event</a>
+          <a href="#oldAge">Old Age Care</a>
           <a href="donatePage.html">Donate</a>
           <a href="schedule.html">Schedule</a>
           <a id="loginRef"  class="login">Login</a>
@@ -48,11 +51,14 @@
                             <input type="text" placeholder="password" name="pwd" required/>
                             <br/>
                             <br/>
-                            <div class="myModalFooter">
-                                <button id = "loginBtn" type ="submit" class="loginBtn" data-state="off">Login</button>
-                            </div>
+                            <br/>
+                            <br/>
                         </form>
                     </div>
+                </div>
+                <div class="myModalFooter">
+                    <button type ="submit" class="loginBtn">Login</button>
+                    <button type = "submit" class="loginBtn">Forgot Password?</button>
                 </div>
             </div>
         </div>
@@ -76,17 +82,38 @@
                             <input type="text" placeholder="password" name="pwd" required/>
                             <br/>
                             <br/>
-                            <div class="myModalFooter">
-                                <button type="submit" class="registerBtn" data-state="off">Register</button>
-                            </div>
+                            <br/>
+                            <br/>
                         </form>
                     </div>
+                </div>
+                <div class="myModalFooter">
+                    <button type="submit" class="loginBtn">Register</button>
                 </div>
             </div>
         </div>
         
         <!--Rest of Main Page-->
         <div class="row" style="display:flex; padding: 50px 50px;">
+
+                        <div class="rightDiv" 
+                style=  "border: 3px solid black;
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        flex-basis: 30%;
+                        margin: 0 0 30px 30px;
+                        padding: 30px;">
+                
+                <h3>Current Schedule</h3>
+                    <table id="event_table" width="100%" class="table">
+                            <td>Event</td><td>Submitted by</td><td>Date</td>
+                            <tr><td><a href="event">Event1</a></td><td>Carr</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="event">Event2</a></td><td>McMaster</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="event">Event3</a></td><td>James</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="event">Event4</a></td><td>Daniel</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="event">Event5</a></td><td>McDonald</td><td>4/1/2018</td></tr>
+                    </table>
+            </div>
 			
 			<div class="left" 
 				style=	"border: 3px solid black;
@@ -96,39 +123,37 @@
 						margin: 0 0 30px 30px;
 						padding: 30px;">
 				
-				<form id="donateForm" class="donateForm" style="padding-left:1em;"> 
-					<h1>Thanks for Your Support!</h1>
+				<form id="scheduleFrom" class="scheduleFrom" style="padding-left:1em;"> 
+					<h1>Register Your Event</h1>
 				
 					<p style="margin-bottom:50px;">
-						100% of your donation will go toward ensuring we provide the best community service for our community.  Working together, we can help make the world a better place.  We thank you for your ongoing support and consideration.
+						You can register your event here
 					</p>
 				
-					<h3>Select an Amount</h3>
-				
-					<button type="button" class="donate" value="1" onclick="donate(0)">$1</button>
-					<button type="button" class="donate" value="5" onclick="donate(1)">$5</button>
-					<button type="button" class="donate" value="10" onclick="donate(2)">$10</button>
-					<button type="button" class="donate" value="25" onclick="donate(3)">$25</button>
-					<button type="button" class="donate" value="50" onclick="donate(4)">$50</button>
-					<button type="button" class="donate" value="custom" onclick="donate(5)">Custom</button>
-					<input type="text" name="custom" placeholder="Enter Amount" style="margin-right: 25px; height:25px; width:100px; visibility: hidden" oninput="setCustomAmount()"></br>
+					<h3>Event Details</h3>
+				        <input type="text" name="eventtitle" placeholder="Event Title" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateEventTitle()"> 
+                        <p>
+                            <textarea rows="4" cols="50">Event Description</textarea>
+                        </p>
+                        <input type="date" name="Date" placeholder="Event Date" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;">
 					
 					<hr style="margin-top: 25px; margin-right: 1em; background-color:#000000; border-color:#000000; color:#000000; border: 2px solid #000000;">
 					
 					<h3>Your Details</h3>
 					
-					<div style="text-align: center; display:inline-block">
+					<div style="display:inline-block">
 						<input type="text" name="firstname" placeholder="First Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateFName()">
 						<input type="text" name="lastname" placeholder="Last Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateLName()">
+                        <br/><br/>
 						<input type="text" name="email" placeholder="Email" oninput="validateEmail()" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></br>
 						
-						<button type="button" class="donate" onclick="donateSubmit()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Donate</button>
+						<button type="button" class="Register" onclick="registerEvent()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Register</button>
 					</div>
 					
 				</form>
 				
 				<style>
-					.donate{
+					.Register{
 						height:50px;
 						background-color:#6495ED;
 						font-size: 16px;
@@ -142,25 +167,9 @@
 				
 			</div>
 			
-			<div class="rightDiv" 
-				style=	"border: 3px solid black;
-						flex-grow: 0;
-						flex-shrink: 0;
-						flex-basis: 30%;
-						margin: 0 0 30px 30px;
-						padding: 30px;">
-				
-				<h3>Questions?</h3>
-				
-				<a href="no" style="display: inline-block; margin-bottom:25px">Is my donation safe and secure?</a></br>
-				<a href="no" style="display: inline-block; margin-bottom:25px">Is my donation tax-deductible?</a></br>
-				<a href="no" style="display: inline-block; margin-bottom:25px">Do I get a receipt after I submit my donation?</a></br>
-				
-				<button type="button" class="donate" onclick="askQuestionPressed()">Ask a Question</button></br>
-				
-			</div>
+
 			
         </div>
-        <script src="donate.js"></script>
+        <script src="schedule.js"></script>
     </body>
 </html>
