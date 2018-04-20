@@ -38,29 +38,32 @@
                     <h2>Login</h2>
                 </div>
                 <div class="myModalBody">
-                    <div id=class="form">
+                    <div class="form">
                         <form class="login-form">
                             <Label for="uname"><b>Username: </b></Label>
-                            <input type="text" placeholder="username" name="uname" required/>
+                            <input id= "usrnm" type="text" placeholder="username" name="uname" required/>
                             <br/>
                             <br/>
                             <Label for="pwd"><b>Password: </b></Label>
-                            <input type="text" placeholder="password" name="pwd" required/>
+                            <input id="psswrd" type="text" placeholder="password" name="pwd"  required/>
                             <br/>
                             <br/>
-                            <br/>
-                            <br/>
+                            <div class="myModalFooter">
+                                <p id="wrongUser"color="red"><b>Incorrect Username or Password</b></p>
+                                 <br/>
+                                <button id = "loginBtn" class="loginBtn" data-state="off">Login</button>
+                                
+                                
+                                 
+                            </div>
                       </form>
                     </div>
-                </div>
-                <div class="myModalFooter">
-                    <button type ="submit" class="loginBtn">Login</button>
                 </div>
             </div>
         </div>
 
-
-
+            
+        <!--Register Modal-->
         <div id="registerModal" class="myModal">
             <div class="myModalContent">
                 <div class="myModalHeader">
@@ -71,21 +74,22 @@
                     <div class="form">
                         <form class="register-form">
                             <label><b>Username: </b></label>
-                            <input type="text" placeholder="username" name="uname" required/>
+                            <input id= "reguser"type="text" placeholder="username" name="uname" required/>
                             <br/>
                             <br/>
                             <label><b>Password: </b></label>
-                            <input type="text" placeholder="password" name="pwd" required/>
+                            <input id="regPwd" type="text" placeholder="password" name="pwd" required/>
                             <br/>
                             <br/>
-                            <br/>
-                            <br/>
+                            <label><b>Email: </b></label>
+                            <input id= "regEmail" type="text" placeholder="email" name="reg" required/>
+                            <div class="myModalFooter"> 
+                                <button id = "registerBtn" type="submit" class="loginBtn" data-state="off">Register</button>  
+                            </div>
                         </form>
                     </div>
                 </div>
-                <div class="myModalFooter">
-                    <button type="submit" class="loginBtn">Register</button>
-                </div>
+                
             </div>
         </div>
         

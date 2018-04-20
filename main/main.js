@@ -4,9 +4,33 @@ var modal = document.getElementById('ModalView');
 var registerModal = document.getElementById('registerModal');
 //get login Navigation button
 var loginNavBtn = document.getElementById('loginRef');
-var registerButton = document.getElementById('registerRef');
+var registerNavButton = document.getElementById('registerRef');
 
-registerButton.onclick = function() {
+document.getElementById('wrongUser').style.visibility = "hidden";
+
+//Login Button obj
+var loginBtn = document.getElementById('loginBtn'); 
+//register button obj
+var registerBtn = document.getElementById('registerBtn');
+function postLogin(){
+    var username = document.getElementById('usrnm').value;
+    var password = document.getElementById('psswrd').value;
+    if (username == 'bestcommunity' && password == 'bestcommunity'){
+             loginBtn.setAttribute('data-state', 'on');
+             closeModal();
+             document.getElementById('loginRef').innerHTML = 'Log Out';
+        }else{
+            document.getElementById('wrongUser').style.visibility= "visible";
+        }
+       
+    
+};
+
+function postRegister(){
+    
+};
+
+registerNavButton.onclick = function() {
     registerModal.style.display = "block";
 };
 
@@ -23,6 +47,8 @@ loginNavBtn.addEventListener('click', openModal);
 closeBtn.addEventListener('click', closeModal);
 closeBtn2.addEventListener('click', closeModal);
 
+
+
 //outside click listener on window
 window.addEventListener('click', outsideClick);
 //open a Modal
@@ -36,13 +62,33 @@ function closeModal(){
 }
 
 function outsideClick(e){
-    if (e.target == modal){
+//login text field
+var username = document.getElementById('usrnm');
+var password = document.getElementById('psswrd');
+//Register text field    
+var regUsr = document.getElementById('reguser');
+var regPwd = document.getElementById('regPwd');
+var regEmail = document.getElementById('regEmail');
+
+    if (e.target == loginBtn){
+        if (username.value != '' && password.value != ''){
+           e.preventDefault();
+           postLogin(); 
+        }
+        
+    }else if (e.target == modal){
         modal.style.display='none'; //closes it if we click the cursor outside of the box.    
+    }else if (e.target == registerBtn){
+        if (regUsr.value != '' && regPwd != '' && regEmail != ''){
+            e.preventDefault();
+            postRegister();
+        } 
+    }else if (e.target == registerModal){
+        registerModal.style.display ='none';
     }
 }
 
 function slideShow(){
-  
     var x = document.getElementsByClassName("Slideshow");
     for (var i = 0; i < x.length; i++ ){
         x[i].style.display="none"; //sets everything to invisible first
