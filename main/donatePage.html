@@ -103,14 +103,16 @@
 					</p>
 				
 					<h3>Select an Amount</h3>
-				
-					<button type="button" class="donate" value="1" onclick="donate(0)">$1</button>
-					<button type="button" class="donate" value="5" onclick="donate(1)">$5</button>
-					<button type="button" class="donate" value="10" onclick="donate(2)">$10</button>
-					<button type="button" class="donate" value="25" onclick="donate(3)">$25</button>
-					<button type="button" class="donate" value="50" onclick="donate(4)">$50</button>
-					<button type="button" class="donate" value="custom" onclick="donate(5)">Custom</button>
-					<input type="text" name="custom" placeholder="Enter Amount" style="margin-right: 25px; height:25px; width:100px; visibility: hidden" oninput="setCustomAmount()"></br>
+					
+					<div id="amountSelector">
+						<button type="button" class="donate" value="1" onclick="donate(0)">$1</button>
+						<button type="button" class="donate" value="5" onclick="donate(1)">$5</button>
+						<button type="button" class="donate" value="10" onclick="donate(2)">$10</button>
+						<button type="button" class="donate" value="25" onclick="donate(3)">$25</button>
+						<button type="button" class="donate" value="50" onclick="donate(4)">$50</button>
+						<button type="button" class="donate" value="custom" onclick="donate(5)">Custom</button>
+						<input type="text" name="custom" placeholder="Enter Amount" style="margin-right: 25px; height:25px; width:100px; visibility: hidden" oninput="setCustomAmount()"></br>
+					</div>
 					
 					<hr class="divider">
 					
@@ -160,9 +162,9 @@
 				
 				<h3>Questions?</h3>
 				
-				<a href="no" style="display: inline-block; margin-bottom:25px">Is my donation safe and secure?</a></br>
-				<a href="no" style="display: inline-block; margin-bottom:25px">Is my donation tax-deductible?</a></br>
-				<a href="no" style="display: inline-block; margin-bottom:25px">Do I get a receipt after I submit my donation?</a></br>
+				<a href="" onClick="alert('Yes, we take safety very seriously.')" style="display: inline-block; margin-bottom:25px">Is my donation safe and secure?</a>
+				<a href="" onClick="alert('Yes, donations made to use are tax-deductible.')" style="display: inline-block; margin-bottom:25px">Is my donation tax-deductible?</a>
+				<a href="" onClick="alert('You will get emailed a receipt after making a donation.')" style="display: inline-block; margin-bottom:25px">Do I get a receipt after I submit my donation?</a>
 				
 				<button type="button" class="donate" onclick="askQuestionPressed()">Ask a Question</button></br>
 				
