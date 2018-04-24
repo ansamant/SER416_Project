@@ -8,10 +8,17 @@ var registerNavButton = document.getElementById('registerRef');
 
 document.getElementById('wrongUser').style.visibility = "hidden";
 
+document.getElementById('WrongInput').style.visibility="hidden";
+
+
+//http post and get methodology
+
+
 //Login Button obj
 var loginBtn = document.getElementById('loginBtn'); 
 //register button obj
-var registerBtn = document.getElementById('registerBtn');
+var registerBtn = document.getElementById('regBtn');
+
 function postLogin(){
     var username = document.getElementById('usrnm').value;
     var password = document.getElementById('psswrd').value;
@@ -21,12 +28,23 @@ function postLogin(){
              document.getElementById('loginRef').innerHTML = 'Log Out';
         }else{
             document.getElementById('wrongUser').style.visibility= "visible";
-        }
-       
+        }   
     
 };
 
 function postRegister(){
+    console.log('e.preventDefault worked!');
+    var regUser = document.getElementById('reguser');
+    var regPswd = document.getElementById('regPwd');
+    
+    if (regUser == 'bestcommunity'|| regPswd == 'bestcommunity'){
+        //Print sorry this user name has be taken
+        document.getElementById('WrongInput').style.visibility = "visible";
+    }else{
+        registerBtn.setAttribute('data-state', 'on');
+        closeModal();
+        document.getElementById('loginRef').innerHTML = 'Log Out';
+    }
     
 };
 
@@ -42,6 +60,8 @@ slideShow(); //starts automatic slideshow
 
 //Set onclickListener for login modal
 loginNavBtn.addEventListener('click', openModal);
+
+
 
 //Set onClickListener for close modal
 closeBtn.addEventListener('click', closeModal);
@@ -65,10 +85,10 @@ function outsideClick(e){
 //login text field
 var username = document.getElementById('usrnm');
 var password = document.getElementById('psswrd');
-//Register text field    
-var regUsr = document.getElementById('reguser');
-var regPwd = document.getElementById('regPwd');
-var regEmail = document.getElementById('regEmail');
+
+var regU = document.getElementById('reguser');
+var regP = document.getElementById('regPwd');
+var regE = document.getElementById('regEmail');
 
     if (e.target == loginBtn){
         if (username.value != '' && password.value != ''){
@@ -79,11 +99,13 @@ var regEmail = document.getElementById('regEmail');
     }else if (e.target == modal){
         modal.style.display='none'; //closes it if we click the cursor outside of the box.    
     }else if (e.target == registerBtn){
-        if (regUsr.value != '' && regPwd != '' && regEmail != ''){
+            console.log("RegisterBtn is pressed");
+        if (regU.value != '' && regP.value != '' && regE.value != ''){
             e.preventDefault();
-            postRegister();
-        } 
+            postRegister();  
+        }        
     }else if (e.target == registerModal){
+        console.log("Reg Modal works fine");
         registerModal.style.display ='none';
     }
 }
