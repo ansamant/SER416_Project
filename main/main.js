@@ -8,25 +8,44 @@ var registerNavButton = document.getElementById('registerRef');
 
 document.getElementById('wrongUser').style.visibility = "hidden";
 
+document.getElementById('WrongInput').style.visibility="hidden";
+
+
+//http post and get methodology
+
+
 //Login Button obj
 var loginBtn = document.getElementById('loginBtn'); 
 //register button obj
-var registerBtn = document.getElementById('registerBtn');
+var registerBtn = document.getElementById('regBtn');
+
 function postLogin(){
     var username = document.getElementById('usrnm').value;
     var password = document.getElementById('psswrd').value;
     if (username == 'bestcommunity' && password == 'bestcommunity'){
              loginBtn.setAttribute('data-state', 'on');
              closeModal();
-             document.getElementById('loginRef').innerHTML = 'Log Out';
+             document.getElementById('registerRef').innerHTML = 'Welcome bestcommunity';
+             document.getElementById('loginRef').innerHTML = 'Logout';
         }else{
             document.getElementById('wrongUser').style.visibility= "visible";
-        }
-       
+        }   
     
 };
 
 function postRegister(){
+    var regUser = document.getElementById('reguser');
+ 
+    
+    if (regUser.value == 'bestcommunity'){
+        //Print sorry this user name has be taken
+        document.getElementById('WrongInput').style.visibility = "visible";
+    }else{
+        registerBtn.setAttribute('data-state', 'on');
+        closeModal();
+        document.getElementById('registerRef').innerHTML = 'Welcome ' + regUser.value;
+        document.getElementById('loginRef').innerHTML = 'Logout';
+    }
     
 };
 
@@ -43,6 +62,8 @@ slideShow(); //starts automatic slideshow
 //Set onclickListener for login modal
 loginNavBtn.addEventListener('click', openModal);
 
+
+
 //Set onClickListener for close modal
 closeBtn.addEventListener('click', closeModal);
 closeBtn2.addEventListener('click', closeModal);
@@ -53,7 +74,14 @@ closeBtn2.addEventListener('click', closeModal);
 window.addEventListener('click', outsideClick);
 //open a Modal
 function openModal(){
-    modal.style.display='block';
+    var ref = document.getElementById('loginRef');
+    if (ref.innerText == 'Logout'){
+        ref.innerHTML = 'Login';
+        document.getElementById('registerRef').innerHTML= 'Register';
+    }else{
+        modal.style.display='block'; 
+    }
+   
 }
 
 function closeModal(){
@@ -65,10 +93,10 @@ function outsideClick(e){
 //login text field
 var username = document.getElementById('usrnm');
 var password = document.getElementById('psswrd');
-//Register text field    
-var regUsr = document.getElementById('reguser');
-var regPwd = document.getElementById('regPwd');
-var regEmail = document.getElementById('regEmail');
+
+var regU = document.getElementById('reguser');
+var regP = document.getElementById('regPwd');
+var regE = document.getElementById('regEmail');
 
     if (e.target == loginBtn){
         if (username.value != '' && password.value != ''){
@@ -79,11 +107,13 @@ var regEmail = document.getElementById('regEmail');
     }else if (e.target == modal){
         modal.style.display='none'; //closes it if we click the cursor outside of the box.    
     }else if (e.target == registerBtn){
-        if (regUsr.value != '' && regPwd != '' && regEmail != ''){
+            console.log("RegisterBtn is pressed");
+        if (regU.value != '' && regP.value != '' && regE.value != ''){
             e.preventDefault();
-            postRegister();
-        } 
+            postRegister();  
+        }     
     }else if (e.target == registerModal){
+        console.log("Reg Modal works fine");
         registerModal.style.display ='none';
     }
 }
