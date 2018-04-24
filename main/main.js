@@ -25,7 +25,8 @@ function postLogin(){
     if (username == 'bestcommunity' && password == 'bestcommunity'){
              loginBtn.setAttribute('data-state', 'on');
              closeModal();
-             document.getElementById('loginRef').innerHTML = 'Log Out';
+             document.getElementById('registerRef').innerHTML = 'Welcome bestcommunity';
+             document.getElementById('loginRef').innerHTML = 'Logout';
         }else{
             document.getElementById('wrongUser').style.visibility= "visible";
         }   
@@ -33,17 +34,17 @@ function postLogin(){
 };
 
 function postRegister(){
-    console.log('e.preventDefault worked!');
     var regUser = document.getElementById('reguser');
-    var regPswd = document.getElementById('regPwd');
+ 
     
-    if (regUser == 'bestcommunity'|| regPswd == 'bestcommunity'){
+    if (regUser.value == 'bestcommunity'){
         //Print sorry this user name has be taken
         document.getElementById('WrongInput').style.visibility = "visible";
     }else{
         registerBtn.setAttribute('data-state', 'on');
         closeModal();
-        document.getElementById('loginRef').innerHTML = 'Log Out';
+        document.getElementById('registerRef').innerHTML = 'Welcome ' + regUser.value;
+        document.getElementById('loginRef').innerHTML = 'Logout';
     }
     
 };
@@ -73,7 +74,14 @@ closeBtn2.addEventListener('click', closeModal);
 window.addEventListener('click', outsideClick);
 //open a Modal
 function openModal(){
-    modal.style.display='block';
+    var ref = document.getElementById('loginRef');
+    if (ref.innerText == 'Logout'){
+        ref.innerHTML = 'Login';
+        document.getElementById('registerRef').innerHTML= 'Register';
+    }else{
+        modal.style.display='block'; 
+    }
+   
 }
 
 function closeModal(){
@@ -103,7 +111,7 @@ var regE = document.getElementById('regEmail');
         if (regU.value != '' && regP.value != '' && regE.value != ''){
             e.preventDefault();
             postRegister();  
-        }        
+        }     
     }else if (e.target == registerModal){
         console.log("Reg Modal works fine");
         registerModal.style.display ='none';
