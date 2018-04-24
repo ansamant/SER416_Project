@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <meta charset= "UTF-8"/>
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0"/>
+        <meta name="description" content="Schedule Page"/>
+        <meta name="author" content="Aditya Samant, Benjamin Powell, Daniel Perez, Sullivan Wenger, Timothy Dirusso & Yuchong Li"/>
+        <meta http-equiv="X-UA-Compatible" content="ie-edge"/> <!--Just in case you are using an old IE browser, don't know why-->
+        <title>Best Community Service Main Page</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="table.css"/>
+    </head>
+    <body>
+        <!--Header-->
+        <div class="header">
+            <h1>Welcome to Best Community Service! </h1>
+        </div>
+        
+         <!-- Navigation Bar; hrefs are placeholders do them how you will -->
+        <nav class="nav-bar">
+          <a href="mainPage.html">Home</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="#rent">Equipment Rental</a>
+          <a href="schedule.html">Schedule an Event</a>
+          <a href="donatePage.html">Donate</a>
+          <a id="loginRef"  class="login">Login</a>
+          <a id="registerRef" class="right">Register</a>
+        </nav> 
+
+        <!--Rest of Main Page-->
+        <div class="row" style="display:flex; padding: 0px 0px;">
+
+            <div id= "leftSide" class="rightDiv" 
+                style=  "border: 3px solid black;
+                        flex-grow: 0;
+                        flex-shrink: 0;
+                        flex-basis: 40%;
+                        margin: 0 280px 0px 0px;
+                        padding: 30px;">
+				
+                <h3>Profile Information</h3>
+                <div>
+				<div id="editName" class="editForm"  style="margin-bottom: 1em">
+				  <img src="../images/blank-profile-picture-973460_640-300x300.png"  width="100" height="100">
+				<div>
+					<b>Full Name:</b>
+				</div>
+				
+				<div>
+					Daniel Israel Perez  
+				</div>
+				</div>
+				
+				<div>
+				<div id="editContact" style="margin-bottom: 1em">
+				<div>
+					<b>Phone Numbers:</b>
+				</div>
+				
+
+				<div>
+									<b>Cell</b>
+											111-222-000 
+								</div>
+								<div>
+									<b>Home</b>
+											111-222-000 
+								</div>
+				</div>	
+				<div id="editAddress" style="margin-bottom: 1em">
+				<div>
+					<b>Home Address:</b>
+				</div>
+				
+
+				<div>
+							Street
+								</div>
+								<div>
+							City 
+								</div>
+				<div>
+							State
+								</div>
+								<div>
+							Country 
+								</div>
+							<div>
+							Zipcode 
+								</div>
+				</div>
+				
+				
+				<div id="editEmail" style="margin-bottom: 1em">
+				
+					
+				<div>
+				<b>Email Address:</b>
+						email
+				</div>
+								
+								
+				</div>	
+				
+				</div>
+					</div>
+					<button type="button" class="profile" onclick="editProfile()" style="margin-bottom: 0px; margin-right: 0px; margin-top: 0px; height:20px; width:50px;">Edit</button>
+            </div>
+			
+			<div class="left" 
+				style=	"border: 3px solid black;
+						flex-grow: 0;
+						flex-shrink: 0;
+						flex-basis: 40%;
+						margin: 0px  0px 0px 0px;
+						padding: 30px;">
+						
+				
+				<form id="billFrom" class="scheduleFrom" style="padding-left:1em;"> 
+						
+						<h3>Billing Info</h3>
+				
+						
+						<div class="splitcontentright">
+							<div style="margin-bottom: 1em">
+								<div>
+									<div>
+										<b>Cardholder's Name:</b>
+									</div>
+									
+								</div>
+								<div>
+									Daniel Israel Perez  
+								</div>
+							</div>
+							
+							<div style="margin-bottom: 1em">
+								<div>
+									<div>
+										<b>Card Number: </b> 
+									</div>
+									<div>
+										XXX-XXXX-XXXX-1234
+									</div>
+									
+								</div>
+								
+								
+							</div>
+							
+							<div style="margin-bottom: 1em">
+							<div>
+									<b>Experation Date:</b>
+								</div>
+								<div>
+									 01/18
+							</div>
+							</div>
+							
+							<div style="margin-bottom: 1em">
+								<div>
+									<div>
+										<b>Address 1: </b>
+										
+									</div>
+								<div>
+							Street
+								</div>
+								<div>
+							City 
+								</div>
+						<div>
+							State
+								</div>
+								<div>
+							Country 
+								</div>
+							<div>
+							Zipcode 
+								</div>
+							
+							</div>
+						</div>
+						<div style="margin-bottom: 1em">
+								<div>
+									<div>
+										<b>Address 2: </b>
+										
+									</div>
+								<div>
+							Street
+								</div>
+								<div>
+							City 
+								</div>
+						<div>
+							State
+								</div>
+								<div>
+							Country 
+								</div>
+							<div>
+							Zipcode 
+								</div>
+							
+							</div>
+						</div>
+					
+				</form>
+				
+				
+				</div>
+			</div>
+			
+			<div class="footer">
+               <center><p1>Best Community Inc. is a registered 501(c)3 nonprofit organization.</p1><p1><ul>All donations are tax deductible in full or in part.</ul></p1>
+                <p2 class="scrollOn"><u>Security</u> &nbsp; <u>Privacy Policy</u> &nbsp; <u>Terms of Use</u></p2><br/>
+                   <p3>&copy; Best Comunity Inc. All rights reserved</p3> </center>
+            </div>
+			
+        </div>
+		
+                <script src="profile.js"></script>
+    </body>
+</html>
