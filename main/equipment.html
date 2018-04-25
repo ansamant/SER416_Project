@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+    <head>
+        <meta charset= "UTF-8"/>
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0"/>
+        <meta name="description" content="Schedule Page"/>
+        <meta name="author" content="Aditya Samant, Benjamin Powell, Daniel Perez, Sullivan Wenger, Timothy Dirusso & Yuchong Li"/>
+        <meta http-equiv="X-UA-Compatible" content="ie-edge"/> <!--Just in case you are using an old IE browser, don't know why-->
+        <title>Best Community Service Main Page</title>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="table.css"/>
+    </head>
+    <body>
+        <!--Header-->
+        <div class="header">
+            <h1>Welcome to Best Community Service! </h1>
+        </div>
+        
+         <!-- Navigation Bar; hrefs are placeholders do them how you will -->
+        <nav class="nav-bar">
+          <a href="mainPage.html">Home</a>
+          <a href="volunteer.html">Volunteer</a>
+          <a href="#rent">Equipment Rental</a>
+          <a href="schedule.html">Schedule an Event</a>
+          <a href="donatePage.html">Donate</a>
+          <a id="loginRef"  class="login">Login</a>
+          <a id="registerRef" class="right">Register</a>
+        </nav> 
+
+
+        <!--Modal: A pop up used for login formalities-->
+        <div id="ModalView" class="myModal">
+            <div class="myModalContent">
+                <div class="myModalHeader">
+                    <span class="closeBtn">&times;</span>  <!--&times; is the x symbol-->
+                    <h2>Login</h2>
+                </div>
+                <div class="myModalBody">
+                    <div id=class="form">
+                        <form class="login-form">
+                            <Label for="uname"><b>Username: </b></Label>
+                            <input type="text" placeholder="username" name="uname" required/>
+                            <br/>
+                            <br/>
+                            <Label for="pwd"><b>Password: </b></Label>
+                            <input type="text" placeholder="password" name="pwd" required/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+                <div class="myModalFooter">
+                    <button type ="submit" class="loginBtn">Login</button>
+                    <button type = "submit" class="loginBtn">Forgot Password?</button>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="registerModal" class="myModal">
+            <div class="myModalContent">
+                <div class="myModalHeader">
+                    <span class="closeBtn">&times;</span>  <!--&times; is the x symbol-->
+                    <h2>Register</h2>
+                </div>
+                <div class="myModalBody">
+                    <div class="form">
+                        <form class="register-form">
+                            <label><b>Username: </b></label>
+                            <input type="text" placeholder="username" name="uname" required/>
+                            <br/>
+                            <br/>
+                            <label><b>Password: </b></label>
+                            <input type="text" placeholder="password" name="pwd" required/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+                <div class="myModalFooter">
+                    <button type="submit" class="loginBtn">Register</button>
+                </div>
+            </div>
+        </div>
+        
+        <!--Rest of Main Page-->
+        <div class="row" style="display:flex; padding: 50px 50px;">
+			
+			<div class="left" 
+				style=	"border: 3px solid black;
+						flex-grow: 0;
+						flex-shrink: 0;
+						flex-basis: 55%;
+						margin: 0 0 30px 30px;
+						padding: 30px;">
+				    <h1>Available equipment</h1>
+                    <table id="event_table" width="100%" class="table">
+                            <tr><td>Equipment</th><th>Amount available</th><th>Amount in use</th><th>Next becomes available</th></tr>
+                            <tr><td><a href="#">Fork lift</a></td><td>2</td><td>5</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="#">Parachute</a></td><td>7</td><td>16</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="#">Generator</a></td><td>3</td><td>2</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="#">Jack hammer</a></td><td>5</td><td>1</td><td>4/1/2018</td></tr>
+                            <tr><td><a href="#">Death Ray</a></td><td>4</td><td>62</td><td>4/1/2018</td></tr>
+                    </table>
+				<form id="scheduleFrom" class="scheduleFrom" style="padding-left:1em;"> 
+					<h3>Select equipment</h3>
+					<select name="equipment" required>
+						<option value="">&lt;Select equipment&gt;</option>
+						<option>Fork lift</option>
+						<option>Parachute</option>
+						<option>Generator</option>
+						<option>Jack hammer</option>
+						<option>Death Ray</option>
+					</select>
+				
+					<h3>Pick up date</h3>
+				        <input type="date" name="pickup" />
+
+					<h3>Return date</h3>
+				        <input type="date" name="return" />
+					
+					<hr style="margin-top: 25px; margin-right: 1em; background-color:#000000; border-color:#000000; color:#000000; border: 2px solid #000000;">
+					
+					<h3>Your Details</h3>
+					
+					<div style="display:inline-block">
+						<input type="text" name="firstname" placeholder="First Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateFName()">
+						<input type="text" name="lastname" placeholder="Last Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateLName()">
+                        <br/><br/>
+						<input type="text" name="email" placeholder="Email" oninput="validateEmail()" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></br>
+						
+						<button type="button" class="Register" onclick="registerEvent()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Rent</button>
+					</div>
+					
+				</form>
+				
+				<style>
+					.Register{
+						height:50px;
+						background-color:#6495ED;
+						font-size: 16px;
+						border: 2px solid black;
+						box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+						display: inline-block;
+						padding: 5px 30px;
+						margin-bottom: 5px;
+					}
+				</style>
+				
+			</div>
+			
+			<div class="footer">
+               <center><p1>Best Community Inc. is a registered 501(c)3 nonprofit organization.</p1><p1><ul>All donations are tax deductible in full or in part.</ul></p1>
+                <p2 class="scrollOn"><u>Security</u> &nbsp; <u>Privacy Policy</u> &nbsp; <u>Terms of Use</u></p2><br/>
+                   <p3>&copy; Best Comunity Inc. All rights reserved</p3> </center>
+            </div>
+			
+        </div>
+        <script src="schedule.js"></script>
+    </body>
+</html>
