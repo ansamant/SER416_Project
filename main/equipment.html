@@ -100,8 +100,9 @@
 						flex-basis: 55%;
 						margin: 0 0 30px 30px;
 						padding: 30px;">
+				<span id="equipmentView">
 				    <h1>Available equipment</h1>
-                    <table id="event_table" width="100%" class="table">
+                    <table id="equip_table" width="100%" class="table">
                             <tr><td>Equipment</th><th>Amount available</th><th>Amount in use</th><th>Next becomes available</th></tr>
                             <tr><td><a href="#">Fork lift</a></td><td>2</td><td>5</td><td>4/1/2018</td></tr>
                             <tr><td><a href="#">Parachute</a></td><td>7</td><td>16</td><td>4/1/2018</td></tr>
@@ -109,9 +110,10 @@
                             <tr><td><a href="#">Jack hammer</a></td><td>5</td><td>1</td><td>4/1/2018</td></tr>
                             <tr><td><a href="#">Death Ray</a></td><td>4</td><td>62</td><td>4/1/2018</td></tr>
                     </table>
-				<form id="scheduleFrom" class="scheduleFrom" style="padding-left:1em;"> 
+				</span>
+				<form id="equipmentForm" class="equipmentFrom" style="padding-left:1em;"> 
 					<h3>Select equipment</h3>
-					<select name="equipment" required>
+					<select name="equipment" id="equipment" required>
 						<option value="">&lt;Select equipment&gt;</option>
 						<option>Fork lift</option>
 						<option>Parachute</option>
@@ -119,28 +121,34 @@
 						<option>Jack hammer</option>
 						<option>Death Ray</option>
 					</select>
+
+					<h3>Quantity</h3>
+						<input type="number" min="0" value="1" id="quantity" name="quantity" required/>
 				
 					<h3>Pick up date</h3>
-				        <input type="date" name="pickup" />
+				        <input type="date" id="pickupdate" name="pickupdate" onchange="validateDates(this)" required/>
 
 					<h3>Return date</h3>
-				        <input type="date" name="return" />
+				        <input type="date" id="returndate" name="returndate" onchange="validateDates(this)" required/>
 					
 					<hr style="margin-top: 25px; margin-right: 1em; background-color:#000000; border-color:#000000; color:#000000; border: 2px solid #000000;">
 					
 					<h3>Your Details</h3>
 					
 					<div style="display:inline-block">
-						<input type="text" name="firstname" placeholder="First Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateFName()">
-						<input type="text" name="lastname" placeholder="Last Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" oninput="validateLName()">
+						<input type="text" id="firstname" name="firstname" placeholder="First Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" required>
+						<input type="text" id="lastname" name="lastname" placeholder="Last Name" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" required>
                         <br/><br/>
-						<input type="text" name="email" placeholder="Email" oninput="validateEmail()" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></br>
+						<input type="text" name="email" placeholder="Email" style="margin-right: 25px; height:25px; width:200px; border: 1px solid gray;" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required></br>
 						
-						<button type="button" class="Register" onclick="registerEvent()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Rent</button>
+						<button type="button" class="Register" onclick="confirmEquipment()" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;">Rent</button>
 					</div>
 					
 				</form>
-				
+				<div style="display:none;padding-left:1em;" id="confirmation">
+					<h3><span id="renter"></span>, you are registered to pick up <span id="rental"></span> on <span id="date"></span> for <span id="duration"></span> day(s).</h3>
+					<button class="Register" style="margin-bottom: 50px; margin-right: 25px; margin-top: 50px; height:50px; width:200px;" onclick="pageReset()">Rent more equipment</button>
+				</div>
 				<style>
 					.Register{
 						height:50px;
@@ -163,6 +171,6 @@
             </div>
 			
         </div>
-        <script src="schedule.js"></script>
+        <script src="equipment.js"></script>
     </body>
 </html>
