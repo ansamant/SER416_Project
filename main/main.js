@@ -27,6 +27,8 @@ function postLogin(){
              closeModal();
              document.getElementById('registerRef').innerHTML = 'Welcome bestcommunity';
              document.getElementById('loginRef').innerHTML = 'Logout';
+             //Go to Profile Page
+              window.location.href = "profile.html";
         }else{
             document.getElementById('wrongUser').style.visibility= "visible";
         }   
@@ -45,6 +47,7 @@ function postRegister(){
         closeModal();
         document.getElementById('registerRef').innerHTML = 'Welcome ' + regUser.value;
         document.getElementById('loginRef').innerHTML = 'Logout';
+        window.location.href = "profile.html";
     }
     
 };
@@ -56,7 +59,7 @@ registerNavButton.onclick = function() {
 var closeBtn= document.getElementsByClassName('closeBtn')[0]; //0 index since it gives us an elements arr.
 var closeBtn2= document.getElementsByClassName('closeBtn')[1]; //0 index since it gives us an elements arr.
 
-var index =0;
+var index = 0;
 slideShow(); //starts automatic slideshow
 
 //Set onclickListener for login modal
