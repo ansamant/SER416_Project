@@ -81,21 +81,6 @@ function validateFName()
 	}
 }
 
-function validateEventTitle()
-{
-	var event_field = document.getElementsByName("eventtitle")[0];
-	if(event_field.value.length == 0)
-	{
-		event_field.style.border = "2px solid red"
-		return false;
-	}
-	else
-	{
-		event_field.style.border = "2px solid green"
-		return true;
-	}
-}
-
 function confirmEquipment() {
 	if (equipmentForm.checkValidity()) {
 		var plural = Number(quantity.value) >= 2
